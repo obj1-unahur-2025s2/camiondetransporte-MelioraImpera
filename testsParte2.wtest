@@ -1,0 +1,21 @@
+import cosas2.*
+import camion2.*
+
+describe "Probar cositas." {
+    method initialize() {
+        camion.cargar(bumblebee) //2
+        camion.cargar(arenaAGranel) // 1
+        camion.cargar(bateriaAntiaerea) // 2
+        camion.cargar(embalajeDeSeguridad) // 2
+        camion.cargar(contenedorPortuario) // 1
+        camion.cargar(knightRider) // 1
+    }
+  test "Cargar cosas y ver que el camion tiene la cantidad correcta de bultos." {
+    assert.equals(camion.cantidadDeBultos(), 9)
+  }
+  test "Bumblebee esta modo auto y la bateria antiaerea con misiles." {
+    assert.that(bumblebee.estaModoAuto())
+    assert.that(bateriaAntiaerea.estaConMisiles())
+  }
+}
+

@@ -1,8 +1,11 @@
 object camion {
     const property carga = []
+    var bultos = 0
 
     method cargar(elemento) {
         carga.add(elemento)
+        elemento.efectoDeLaCarga()
+        bultos += elemento.cantidadDeBultos()
     }
 
     method descargar(elemento) {
@@ -26,5 +29,7 @@ object camion {
 
     method hayElementoQuePesaEntre(unValor, otroValor) = carga.any({e => e.peso().between(unValor, otroValor)}) //between incluye los valores extremos
     method cosaMasPesada() = carga.max({e => e.peso()}) //me devuelve el objeto que pesa mas
-
+    
+    method cantidadDeBultos() = bultos
 }
+
